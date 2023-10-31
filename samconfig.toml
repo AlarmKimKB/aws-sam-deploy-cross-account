@@ -1,0 +1,35 @@
+version           = 0.1
+# 해당 samconfig.toml 과 연동할 Template 파일
+template          = "template.yaml"
+
+[default]
+# 전역 Parameter
+[default.global.parameters]
+stack_name        = "cross-account-sam"
+
+# Sam Build Parameter
+[default.build.parameters]
+cached            = true
+parallel          = true
+
+# Sam Validate Parameter
+[default.validate.parameters]
+lint              = true
+
+# Sam Deploy Parameter
+[default.deploy.parameters]
+capabilities      = "CAPABILITY_IAM"
+confirm_changeset = false
+# s3_bucket         = "s3-an2-sam-cross-account-mgmt"
+# s3_prefix         = "sam-hello-function"
+# region            = "ap-northeast-2"
+
+# Template Parameter Override
+parameter_overrides = [
+  # Format ( Key = Value )
+  "Sample=kimalarm"
+]
+
+# Sam Sync Parameter
+[default.sync.parameters]
+watch = true
